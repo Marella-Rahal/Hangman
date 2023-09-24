@@ -858,7 +858,7 @@ const words: string[] = [
 ];
 
 function App() {
-  const [hangmanWord, setHangmanWord] = useState<string>((): string => {
+  const [hangmanWord] = useState<string>((): string => {
     return words[Math.floor(Math.random() * words.length)];
   });
 
