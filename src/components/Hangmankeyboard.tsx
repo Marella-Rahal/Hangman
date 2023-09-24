@@ -56,19 +56,14 @@ const Hangmankeyboard = ({
           <button
             disabled={isLoser || isWinner}
             key={key}
-            className={`w-10 aspect-square text-center uppercase font-bold text-xl border-[1px] border-black pt-1 cursor-pointer hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white select-none 
+            className={`w-10 aspect-square text-center uppercase font-bold text-xl border-[1px] border-black pt-1 select-none 
             ${
-              hangmanWord.includes(key) &&
-              (guessedLetters.includes(key) || isLoser || isWinner)
-                ? "bg-blue-500 text-white cursor-default"
-                : ""
-            }
-            ${
-              !hangmanWord.includes(key) &&
-              (guessedLetters.includes(key) || isLoser || isWinner)
-                ? "opacity-50 hover:bg-white hover:text-black focus:bg-white focus:text-black cursor-default"
-                : ""
-            } 
+              !guessedLetters.includes(key) && !isLoser && !isWinner
+                ? "cursor-pointer hover:bg-blue-500 hover:text-white"
+                : hangmanWord.includes(key)
+                ? "bg-blue-500 text-white"
+                : "opacity-50"
+            }   
             `}
             onClick={() => handleKeys(key)}
           >
